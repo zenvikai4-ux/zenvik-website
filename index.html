@@ -389,6 +389,13 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 0 3
           <p class="svc-desc">An AI that answers your business calls 24/7 — handling enquiries, bookings and FAQs.</p>
           <div class="svc-arrow">Learn more <span>→</span></div>
         </div>
+        <div class="svc-card" onclick="showService('custom')">
+          <div class="svc-icon">⚙️</div>
+          <div class="tag tag-c" style="margin-bottom:12px">Custom Development</div>
+          <div class="svc-title">Built Exactly for Your Business</div>
+          <p class="svc-desc">Have a unique requirement? We build custom mobile apps, web platforms and AI agents — tailored exactly to your needs, your industry and your workflow.</p>
+          <div class="svc-arrow">Learn more <span>→</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -871,7 +878,7 @@ function submitDemo() {
   const sol    = document.getElementById('m-sol').value;
   const budget = document.getElementById('m-budget').value;
   // Send to backend
-  fetch('https://zenvikai-backend-production.up.railway.app/lead',{
+  fetch('https://zenvik-root-server-production.up.railway.app/lead',{
     method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({name,phone,business:biz,service:sol,budget})
   }).catch(()=>{});
@@ -884,7 +891,7 @@ function submitContact() {
   const name  = document.getElementById('c-name').value.trim();
   const phone = document.getElementById('c-phone').value.trim();
   if(!name || !phone) return;
-  fetch('https://zenvikai-backend-production.up.railway.app/lead',{
+  fetch('https://zenvik-root-server-production.up.railway.app/lead',{
     method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({name,phone,business:document.getElementById('c-biz').value,service:document.getElementById('c-msg').value,budget:document.getElementById('c-email').value})
   }).catch(()=>{});
@@ -893,7 +900,7 @@ function submitContact() {
 }
 
 // ── DYNAMIC AI CHATBOT ────────────────────────────────
-const BACKEND = 'https://zenvikai-backend-production.up.railway.app';
+const BACKEND = 'https://zenvik-root-server-production.up.railway.app';
 const chatMsgs = document.getElementById('chat-msgs');
 const chatOpts = document.getElementById('chat-opts');
 let chatHistory = [];
